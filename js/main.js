@@ -159,13 +159,13 @@ function onInputKeyUp(evt)
 
 
 //VISUAL
-
+var liListItem = null;
 function onMensajeKey(evt){
     
     if(evt.keyCode == 13){
         var elInputMensaje= document.getElementById("mensajes");
-        crearMensaje(elInputMensaje.value); /*para obtener el texto usamos el .value*/
         crearChat(elInputMensaje.value);
+        crearMensaje(elInputMensaje.value); /*para obtener el texto usamos el .value*/
         elInputMensaje.value = "";
     }
 }
@@ -186,12 +186,15 @@ function crearMensaje(_mensaje){
 	  							 '</div>'+
 	  						    '</div>';
     
-    var elconversacion = document.getElementById("conversacion");
-    var divChat = document.getElementById("chat");
-    elconversacion.innerHTML+= htmlMensajeOut;
+    var mensaje = liListItem.getElementsById("w-last-message")[0];
+    mensaje.innerHTML=_mensaje;
     
-    divChat.scrollTop = divChat.scrollHeight;
+    var elChat = document.getElementById("chat");
+    elChat.innerHTML+= htmlMensajeOut;
+    elChat.scrollTop= elChat.scrollHeight;
+    //divChat.scrollTop = divChat.scrollHeight;
 }
+
 
 
 
@@ -200,8 +203,12 @@ function crearListaChats(){
 }
 
 function crearChat(_mensaje){
+    
                     var elListaChats=document.getElementById("listaChats");
-                    var liListItem = document.createElement('LI');
+    
+                    if(liListItem==null){
+                        
+                        liListItem = document.createElement('LI');
     
                     var htmlChatItem= '<div class="avatar">'+
 		  						'<img src="image/logocodeacademy.png" alt="" class="wh-44">'+
@@ -213,6 +220,8 @@ function crearChat(_mensaje){
                     liListItem.innerHTML = htmlChatItem; 
     
                      elListaChats.insertBefore(liListItem,elListaChats.childNodes[0]);
+                    }
+                    
                     //elListaChats.innerHTML+= htmlChatItem;
     
     

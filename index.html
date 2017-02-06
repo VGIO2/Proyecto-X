@@ -30,7 +30,7 @@
 	  				<div class="w-search icon-search">
 	  					<input type="text" placeholder="Buscar o empezar un chat nuevo" class="w-search-contacts">
 	  				</div>
-	  				<ul class="w-recent-chats">
+	  				<ul class="w-recent-chats" id="listaChats">
 	  					<li>
 		  					<div class="avatar">
 		  						<img src="image/logocodeacademy.png" alt="" class="wh-44">
@@ -246,7 +246,7 @@
 	  					<ul class="w-write-message-list clearfix">
 	  						<li class="col-xs-1 w-write-message-item icon-insert_emoticon w-write-message-icon"></li>
 	  						<li class="col-xs-10 w-write-message-item w-write-message-input">
-	  							<input type="text" name="w-message-input" class="w-write-message-field" placeholder="Escribe tu mensaje aquí" id="mensajes">
+	  							<input type="text" onkeyup="onMensajeKey(event)" onkeydown="" name="w-message-input" class="w-write-message-field" placeholder="Escribe tu mensaje aquí" id="mensajes">
 	  						</li>
 	  						<li class="col-xs-1 w-write-message-item icon-mic w-write-message-icon"></li>
 	  					</ul>

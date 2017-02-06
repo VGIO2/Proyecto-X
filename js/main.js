@@ -1,4 +1,4 @@
-function Chat()
+/*function Chat()
 {
 	this.nombre = '';
 	this.people = [];
@@ -37,11 +37,9 @@ function Whatsapp()
 			ulChatList.innerHTML += htmlChatList;
 		}
 
-
-
-
-
 	};
+    
+    
 	this.drawMessageList= function(){
 		var divChat = document.getElementById('chat');
 		divChat.innerHTML = '';
@@ -53,9 +51,13 @@ function Whatsapp()
 			}
 		}
 	};
+    
+    
 	this.getLastMessage = function(){
 		return this.selectedChat.messages[this.selectedChat.messages.length-1];
 	};
+    
+    
 	this.sendMessage	= function(_message, _in){
 		var htmlMessageIn = '<div class="w-message w-message-in"><div class="w-message-text"><p>' + _message.message + '</p><div class="time">14:27</div></div></div>';
 		var htmlMessageOut = '<div class="w-message w-message-out"><div class="w-message-text"><p>' + _message.message + '</p><div class="time">14:27</div></div></div>';
@@ -145,4 +147,77 @@ function onInputKeyUp(evt)
 		wapp.sendMessage(new Message(evt.target.value, me));
 		evt.target.value = '';
 	}
+}*/
+
+//LOGICA
+
+
+
+
+
+
+
+
+//VISUAL
+
+function onMensajeKey(evt){
+    
+    if(evt.keyCode == 13){
+        var elInputMensaje= document.getElementById("mensajes");
+        crearMensaje(elInputMensaje.value); /*para obtener el texto usamos el .value*/
+        crearChat(elInputMensaje.value);
+        elInputMensaje.value = "";
+    }
+}
+function crearMensaje(_mensaje){
+    
+             var htmlMensajeIn= '<div class="w-message w-message-in">'+
+	  					         '<div class="w-message-text">'+
+	  								'<h5 class="green-1">Maria Paula Rivarola</h5>'+
+	  								'<p>jshdajsdas</p>'+
+	  								'<div class="time">11:13</div>'+
+	  							 '</div>'+
+	  						    '</div>';
+            var d = new Date();
+	  	    var htmlMensajeOut= '<div class="w-message w-message-out">'+
+	  							 '<div class="w-message-text">'+
+	  								'<p>'+ _mensaje+'</p>'+
+	  								'<div class="time">'+d.getHours()+":"+ d.getMinutes()+  '</div>'+
+	  							 '</div>'+
+	  						    '</div>';
+    
+    var elconversacion = document.getElementById("conversacion");
+    var divChat = document.getElementById("chat");
+    elconversacion.innerHTML+= htmlMensajeOut;
+    
+    divChat.scrollTop = divChat.scrollHeight;
+}
+
+
+
+function crearListaChats(){
+    
+}
+
+function crearChat(_mensaje){
+                    var elListaChats=document.getElementById("listaChats");
+                    var liListItem = document.createElement('LI');
+    
+                    var htmlChatItem= '<div class="avatar">'+
+		  						'<img src="image/logocodeacademy.png" alt="" class="wh-44">'+
+		  						'<h4 class="w-contact-name">Laboratoria Perú</h4>'+
+		  						'<p class="w-last-message" id="mensaje">'+_mensaje+'</p>'+
+		  					'</div>'+
+							'<div class="time" id="hora">14:27</div>';
+    
+                    liListItem.innerHTML = htmlChatItem; 
+    
+                     elListaChats.insertBefore(liListItem,elListaChats.childNodes[0]);
+                    //elListaChats.innerHTML+= htmlChatItem;
+    
+    
+}
+
+function actualizarCabezeraChat(){
+    
 }

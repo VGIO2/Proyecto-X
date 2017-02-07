@@ -13,7 +13,7 @@
 	  	<link href="css/main.css" rel="stylesheet">
 	  	<link href="css/queries.css" rel="stylesheet">
 	</head>
-	<body>
+	<body onload="init()">
 	  	<div class="w-app">
 	  		<div class="container">
 	  			<aside class="col-md-4 w-contacts">
@@ -122,7 +122,7 @@
 	  				</ul>
 	  			</aside>
 	  			<section class="col-md-8 w-contacts w-messages">
-	  				<header class="w-chat-messages clearfix">
+	  				<header id="chat-header" class="w-chat-messages clearfix">
 	  					<div class="avatar col-xs-9 w-chat-profile">
 	  						<img src="image/logocodeacademy.png" alt="">
 	  						<h4 class="w-contact-name">Laboratoria Perú</h4>

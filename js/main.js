@@ -8,7 +8,7 @@ function Chat(_nombre, _imagen)
 
     this.borrarMensajes = function()
     {
-        alert("borrado");
+       
     };
 }
 
